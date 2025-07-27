@@ -9,46 +9,40 @@
 ----------------------------------------------
 ------------MOD CODE -------------------------
 
-function SMODS.INIT.TarotMagicalDrop3()
-  local tarots = {
-    c_fool = { x = 0, y = 0 },
-    c_magician = { x = 1, y = 0 },
-    c_high_priestess = { x = 2, y = 0 },
-    c_empress = { x = 3, y = 0 },
-    c_emperor = { x = 4, y = 0 },
-    c_heirophant = { x = 5, y = 0 },
-    c_lovers = { x = 6, y = 0 },
-    c_chariot = { x = 7, y = 0 },
-    c_justice = { x = 8, y = 0 },
-    c_hermit = { x = 9, y = 0 },
-    c_wheel_of_fortune = { x = 0, y = 1 },
-    c_strength = { x = 1, y = 1 },
-    c_hanged_man = { x = 2, y = 1 },
-    c_death = { x = 3, y = 1 },
-    c_temperance = { x = 4, y = 1 },
-    c_devil = { x = 5, y = 1 },
-    c_tower = { x = 6, y = 1 },
-    c_star = { x = 7, y = 1 },
-    c_moon = { x = 8, y = 1 },
-    c_sun = { x = 9, y = 1 },
-    c_judgement = { x = 0, y = 2 },
-    c_world = { x = 1, y = 2 }
-  }
+local tarots = {
+  "c_fool",
+  "c_magician",
+  "c_high_priestess",
+  "c_empress",
+  "c_emperor",
+  "c_heirophant",
+  "c_lovers",
+  "c_chariot",
+  "c_justice",
+  "c_hermit",
+  "c_wheel_of_fortune",
+  "c_strength",
+  "c_hanged_man",
+  "c_death",
+  "c_temperance",
+  "c_devil",
+  "c_tower",
+  "c_star",
+  "c_moon",
+  "c_sun",
+  "c_judgement",
+  "c_world",
+}
 
-  SMODS.Atlas {
-    key = "magicaldrop3_tarot",
-    path = "Tarots.png",
-    px = 71,
-    py = 95
-  }
+SMODS.Atlas {
+  key = "magicaldrop3_tarot",
+  path = "Tarots.png",
+  px = 71,
+  py = 95
+}
 
-  for tarot, data in pairs(tarots) do
-    SMODS["Tarot"]:take_ownership(tarot, {
-      atlas = "magicaldrop3_tarot",
-      pos = { x = data.x, y = data.y },
-      soul_pos = { x = data.x, y = data.y }
-    }, true)
-  end
+for _, tarot in pairs(tarots) do
+  SMODS["Tarot"]:take_ownership(tarot, { atlas = "magicaldrop3_tarot" })
 end
 
 ----------------------------------------------
